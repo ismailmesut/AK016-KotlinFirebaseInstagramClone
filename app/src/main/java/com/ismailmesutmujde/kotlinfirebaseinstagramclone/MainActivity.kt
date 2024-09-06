@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Firebase email ile kayıt işlemi
     fun signUpClicked(view : View) {
 
         email = bindingMainActivity.emailText.text.toString()
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Firebase email ile giriş işlemi
     fun signInClicked(view : View) {
 
         email = bindingMainActivity.emailText.text.toString()
