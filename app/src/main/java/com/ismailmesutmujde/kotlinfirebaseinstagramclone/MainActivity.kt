@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bindingMainActivity : ActivityMainBinding
     private lateinit var auth : FirebaseAuth
 
+    var email : String = ""
+    var password : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
@@ -23,14 +26,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         // initialize
-        auth = FirebaseAuth.getInstance()
+        // auth = FirebaseAuth.getInstance()
         auth = Firebase.auth
+
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            val intent = Intent(this, FeedActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun signUpClicked(view : View) {
 
-        val email = bindingMainActivity.emailText.text.toString()
-        val password = bindingMainActivity.passwordText.text.toString()
+        email = bindingMainActivity.emailText.text.toString()
+        password = bindingMainActivity.passwordText.text.toString()
 
         if(email.equals("") || password.equals("")) {
             Toast.makeText(this,"Enter email and password!", Toast.LENGTH_LONG).show()
@@ -52,6 +63,22 @@ class MainActivity : AppCompatActivity() {
 
     fun signInClicked(view : View) {
 
+        email = bindingMainActivity.emailText.text.toString()
+        password = bindingMainActivity.passwordText.text.toString()
+
+        if(email.equals("") || password.equals("")) {
+            Toast.makeText(this,"Enter email and password!", Toast.LENGTH_LONG).show()
+        } else {
+            auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+                // success
+                val intent = Intent(this@MainActivity, FeedActivity::class.java)
+                startActivity(intent)
+                finish()
+            }.addOnFailureListener {
+                // failure
+                Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
 
