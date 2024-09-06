@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ismailmesutmujde.kotlinfirebaseinstagramclone.databinding.RecyclerRowBinding
 import com.ismailmesutmujde.kotlinfirebaseinstagramclone.model.Post
+import com.squareup.picasso.Picasso
 
 class FeedRecyclerAdapter(private val postList : ArrayList<Post>) : RecyclerView.Adapter<FeedRecyclerAdapter.PostHolder>() {
 
@@ -24,6 +25,8 @@ class FeedRecyclerAdapter(private val postList : ArrayList<Post>) : RecyclerView
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         holder.binding.recyclerEmailText.text = postList.get(position).email
         holder.binding.recyclerCommentText.text = postList.get(position).comment
+
+        Picasso.get().load(postList.get(position).downloadUrl).into(holder.binding.recyclerImageView)
     }
 
 }
