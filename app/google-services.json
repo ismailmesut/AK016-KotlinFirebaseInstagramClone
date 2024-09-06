@@ -1,33 +1,13 @@
 {
   "project_info": {
-    "project_number": "1086306532806",
-    "firebase_url": "https://kotlininstagramapp-c3092-default-rtdb.firebaseio.com",
-    "project_id": "kotlininstagramapp-c3092",
-    "storage_bucket": "kotlininstagramapp-c3092.appspot.com"
+    "project_number": "461951658112",
+    "project_id": "kotlinfirebaseinstagramc-ec5c7",
+    "storage_bucket": "kotlinfirebaseinstagramc-ec5c7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1086306532806:android:ca4760c175b2088f4c06c7",
-        "android_client_info": {
-          "package_name": "com.ismailmesutmujde.instakotlinapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBNiI0KXa0NP_vrAYY-5oufBcKzPveHSo8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1086306532806:android:48f8eb3c598ea59d4c06c7",
+        "mobilesdk_app_id": "1:461951658112:android:187b40329527be40d95e65",
         "android_client_info": {
           "package_name": "com.ismailmesutmujde.kotlinfirebaseinstagramclone"
         }
@@ -35,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBNiI0KXa0NP_vrAYY-5oufBcKzPveHSo8"
+          "current_key": "AIzaSyBttSC_4HMfwI8rnr8fPyEs06rtHyExQPo"
         }
       ],
       "services": {
