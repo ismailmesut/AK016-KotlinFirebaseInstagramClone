@@ -6,12 +6,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.ismailmesutmujde.kotlinfirebaseinstagramclone.R
+import com.ismailmesutmujde.kotlinfirebaseinstagramclone.adapter.FeedRecyclerAdapter
 import com.ismailmesutmujde.kotlinfirebaseinstagramclone.databinding.ActivityFeedBinding
 import com.ismailmesutmujde.kotlinfirebaseinstagramclone.model.Post
 
@@ -22,6 +24,8 @@ class FeedActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private lateinit var db : FirebaseFirestore
     private lateinit var postArrayList : ArrayList<Post>
+    private lateinit var feedAdapter : FeedRecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingFeedActivity = ActivityFeedBinding.inflate(layoutInflater)
@@ -34,6 +38,11 @@ class FeedActivity : AppCompatActivity() {
         postArrayList = ArrayList<Post>()
 
         getData()
+
+        bindingFeedActivity.recyclerView.layoutManager = LinearLayoutManager(this)
+        feedAdapter = FeedRecyclerAdapter(postArrayList)
+        bindingFeedActivity.recyclerView.adapter = feedAdapter
+
     }
 
     private fun getData() {
@@ -57,6 +66,7 @@ class FeedActivity : AppCompatActivity() {
                             val post = Post(userEmeail, comment, downloadUrl)
                             postArrayList.add(post)
                         }
+                        feedAdapter.notifyDataSetChanged()
                     }
                 }
             }
