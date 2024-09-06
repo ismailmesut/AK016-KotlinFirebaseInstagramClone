@@ -1,4 +1,4 @@
-package com.ismailmesutmujde.kotlinfirebaseinstagramclone
+package com.ismailmesutmujde.kotlinfirebaseinstagramclone.view
 
 import android.Manifest
 import android.content.Intent
